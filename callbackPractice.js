@@ -1,7 +1,10 @@
-/* In this repo your job is to write functions to make each function call work properly.
+ In this repo your job is to write functions to make each function call work properly.
 Below is a sample problem 
 
-  //code here for sayHi
+
+var sayHi = function(sentence, cb){
+  cb(sentence + ' you are the best');
+}
 
    sayHi('Hi Katie', function(thingToSay){
       alert(thingToSay);
@@ -20,7 +23,7 @@ and what you should write is the favNum function that makes the code above work,
    });
     
     
-*/
+
 
 
 
