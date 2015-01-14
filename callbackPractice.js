@@ -1,5 +1,5 @@
- In this repo your job is to write functions to make each function call work properly.
-Below is a sample problem 
+//  In this repo your job is to write functions to make each function call work properly.
+// Below is a sample problem 
 
 
 var sayHi = function(sentence, cb){
@@ -25,7 +25,9 @@ and what you should write is the favNum function that makes the code above work,
     
 
 
-
+var first = function(arr, callback){
+  callback(arr[0]);
+}
 
   //Code Here for first
   
@@ -43,6 +45,10 @@ first(names, function(firstName){
 
   //Code Here for last
 
+  var last = function(arr, callback){
+    callback(names[names.length - 1]);
+  }
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
   console.log('The last name in names is ', lastName);
@@ -58,8 +64,10 @@ last(names, function(lastName){
 
 
 
+var multiply = function(num1, num2, callback){
+  callback(4 * 3);
 
-  //Code Here for multiply
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -69,13 +77,15 @@ multiply(4, 3, function(answer){
 
 
 
-/* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
+ // NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM 
 
 
 
 
 
-  //Code Here for contains
+var contains = function(arr, str, callback){
+  callback(arr.indexOf(str) !== -1);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -95,7 +105,31 @@ contains(names, 'Colt', function(result){
 
 
 
-    //Code Here for uniq
+function uniq_fast(a) {
+var seen = {};
+var out = [];
+var len = a.length;
+var j = 0;
+for(var i = 0; i < len; i++) {
+var item = a[i];
+if(seen[item] !== 1) {
+seen[item] = 1;
+out[j++] = item;
+}
+}
+return out;
+}
+
+
+var uniq = function(arr, callback){
+    for(var i = 0; i < arr.length; i++){
+      if (i !== arr.indexOf(arr[i])){
+        arr.splice(i, 1);
+        i--;
+      }
+    }
+callback(arr);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
